@@ -1,0 +1,91 @@
+# yaml-language-server: $schema=https://goreleaser.com/static/schema.json
+version: 2
+
+project_name: terragrunt-migrator
+
+builds:
+  - id: terragrunt-migrator
+    main: ./cmd/terragrunt-migrator
+    binary: terragrunt-migrator
+    tool: go
+    env:
+      - CGO_ENABLED=0
+      - GOFLAGS=-mod=readonly
+    goos:
+      - darwin
+      - linux
+    goarch:
+      - amd64
+      - arm64
+    flags:
+      - -trimpath
+    ldflags:
+      - -s -w -X main.version={{ .Version }}
+    mod_timestamp: "{{ .CommitTimestamp }}"
+
+notarize:
+  macos:
+    - enabled: '{{ isEnvSet "MACOS_SIGN_P12" }}'
+      ids:
+        - terragrunt-migrator
+      sign:
+        certificate: "{{ .Env.MACOS_SIGN_P12 }}"
+        # A .p12 exported without a password needs no MACOS_SIGN_PASSWORD secret.
+        password: '{{ envOrDefault "MACOS_SIGN_PASSWORD" "" }}'
+      notarize:
+        issuer_id: "{{ .Env.MACOS_NOTARY_ISSUER_ID }}"
+        key_id: "{{ .Env.MACOS_NOTARY_KEY_ID }}"
+        key: "{{ .Env.MACOS_NOTARY_KEY }}"
+        wait: true
+        timeout: 20m
+
+archives:
+  - formats: [tar.gz]
+    name_template: "{{ .ProjectName }}_{{ .Version }}_{{ .Os }}_{{ .Arch }}"
+    files:
+      - README.md
+      - LICENSE
+      - THIRD-PARTY-NOTICES.txt
+      - LICENSES/**/*
+
+release:
+  github:
+    owner: MDS-BD
+    name: terragrunt-migrator
+
+checksum:
+  name_template: checksums.txt
+
+changelog:
+  sort: asc
+  use: github
+  filters:
+    exclude:
+      - "^docs:"
+      - "^test:"
+      - "^chore:"
+
+homebrew_casks:
+  - name: terragrunt-migrator
+    binaries:
+      - terragrunt-migrator
+    homepage: https://github.com/MDS-BD/terragrunt-migrator
+    description: Upgrade Terraform components and reapply Terragrunt deployments
+    repository:
+      owner: MDS-BD
+      name: homebrew-tools
+      branch: main
+      token: "{{ .Env.HOMEBREW_TAP_GITHUB_TOKEN }}"
+    directory: Casks
+    url:
+      template: "https://github.com/MDS-BD/terragrunt-migrator/releases/download/{{ .Tag }}/{{ .ArtifactName }}"
+    hooks:
+      post:
+        install_steps: |
+          if_path_exists "bin/terragrunt-migrator", base: :homebrew_prefix do
+            symlink "bin/terragrunt-migrator", "bin/tgmigrator", source_base: :homebrew_prefix, target_base: :homebrew_prefix, remove_on_uninstall: true, overwrite: false
+          end
+    commit_author:
+      name: goreleaserbot
+      email: bot@goreleaser.com
+    commit_msg_template: "feat: {{ .ProjectName }} {{ .Tag }}"

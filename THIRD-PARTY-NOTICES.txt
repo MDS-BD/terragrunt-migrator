@@ -1,0 +1,78 @@
+THIRD-PARTY NOTICES AND SOURCE AVAILABILITY
+===========================================
+
+Project: terragrunt-migrator
+Project license: MIT License, copyright 2026 Mediaset Italia S.p.A.
+
+This distribution includes third-party Go modules and Go toolchain runtime code listed below. The complete applicable license, notice, patent and Unicode data-license texts are supplied at the bundle paths shown. The files were copied from the exact module source versions or Go toolchain paths identified in this inventory; upstream-relative source paths and original filenames are retained.
+
+MPL-2.0 source availability
+----------------------------
+The exact, unmodified Source Code Form for the following MPL-2.0-covered modules is included with this distribution as versioned source archives under LICENSES/sources/. Each archive contains the complete Go module source tree, including its original MPL license. Recipients may obtain this source locally at no additional charge by extracting the corresponding archive with `tar -xzf <archive>`. Verify the archives with `cd LICENSES/sources && shasum -a 256 -c SHA256SUMS`. The source files are preserved byte-for-byte; archive metadata is normalized for reproducibility.
+
+- github.com/hashicorp/go-version v1.9.0: LICENSES/sources/hashicorp-go-version-v1.9.0.tar.gz
+- github.com/hashicorp/hcl/v2 v2.25.0: LICENSES/sources/hashicorp-hcl-v2.25.0.tar.gz
+- github.com/hashicorp/terraform-json v0.29.0: LICENSES/sources/hashicorp-terraform-json-v0.29.0.tar.gz
+
+Dependency license file inventory
+----------------------------------
+Each row identifies the exact module version, the original source-relative path and filename, and the copied distribution path.
+- github.com/agext/levenshtein v1.2.1 — source: github.com/agext/levenshtein@v1.2.1/LICENSE — included: LICENSES/third-party/github.com/agext/levenshtein@v1.2.1/LICENSE
+- github.com/agext/levenshtein v1.2.1 — source: github.com/agext/levenshtein@v1.2.1/NOTICE — included: LICENSES/third-party/github.com/agext/levenshtein@v1.2.1/NOTICE
+- github.com/apparentlymart/go-textseg/v17 v17.0.1 — source: github.com/apparentlymart/go-textseg/v17@v17.0.1/textseg/internal/charprops/ucd/license.txt — included: LICENSES/third-party/github.com/apparentlymart/go-textseg/v17@v17.0.1/textseg/internal/charprops/ucd/license.txt
+- github.com/apparentlymart/go-textseg/v17 v17.0.1 — source: github.com/apparentlymart/go-textseg/v17@v17.0.1/LICENSE — included: LICENSES/third-party/github.com/apparentlymart/go-textseg/v17@v17.0.1/LICENSE
+- github.com/atotto/clipboard v0.1.4 — source: github.com/atotto/clipboard@v0.1.4/LICENSE — included: LICENSES/third-party/github.com/atotto/clipboard@v0.1.4/LICENSE
+- github.com/aymanbagabas/go-osc52/v2 v2.0.1 — source: github.com/aymanbagabas/go-osc52/v2@v2.0.1/LICENSE — included: LICENSES/third-party/github.com/aymanbagabas/go-osc52/v2@v2.0.1/LICENSE
+- github.com/catppuccin/go v0.3.0 — source: github.com/catppuccin/go@v0.3.0/LICENSE — included: LICENSES/third-party/github.com/catppuccin/go@v0.3.0/LICENSE
+- github.com/charmbracelet/bubbles v0.21.1-0.20250623103423-23b8fd6302d7 — source: github.com/charmbracelet/bubbles@v0.21.1-0.20250623103423-23b8fd6302d7/LICENSE — included: LICENSES/third-party/github.com/charmbracelet/bubbles@v0.21.1-0.20250623103423-23b8fd6302d7/LICENSE
+- github.com/charmbracelet/bubbletea v1.3.6 — source: github.com/charmbracelet/bubbletea@v1.3.6/LICENSE — included: LICENSES/third-party/github.com/charmbracelet/bubbletea@v1.3.6/LICENSE
+- github.com/charmbracelet/colorprofile v0.2.3-0.20250311203215-f60798e515dc — source: github.com/charmbracelet/colorprofile@v0.2.3-0.20250311203215-f60798e515dc/LICENSE — included: LICENSES/third-party/github.com/charmbracelet/colorprofile@v0.2.3-0.20250311203215-f60798e515dc/LICENSE
+- github.com/charmbracelet/huh v1.0.0 — source: github.com/charmbracelet/huh@v1.0.0/LICENSE — included: LICENSES/third-party/github.com/charmbracelet/huh@v1.0.0/LICENSE
+- github.com/charmbracelet/lipgloss v1.1.0 — source: github.com/charmbracelet/lipgloss@v1.1.0/LICENSE — included: LICENSES/third-party/github.com/charmbracelet/lipgloss@v1.1.0/LICENSE
+- github.com/charmbracelet/x/ansi v0.9.3 — source: github.com/charmbracelet/x/ansi@v0.9.3/LICENSE — included: LICENSES/third-party/github.com/charmbracelet/x/ansi@v0.9.3/LICENSE
+- github.com/charmbracelet/x/cellbuf v0.0.13 — source: github.com/charmbracelet/x/cellbuf@v0.0.13/LICENSE — included: LICENSES/third-party/github.com/charmbracelet/x/cellbuf@v0.0.13/LICENSE
+- github.com/charmbracelet/x/exp/strings v0.0.0-20240722160745-212f7b056ed0 — source: github.com/charmbracelet/x/exp/strings@v0.0.0-20240722160745-212f7b056ed0/LICENSE — included: LICENSES/third-party/github.com/charmbracelet/x/exp/strings@v0.0.0-20240722160745-212f7b056ed0/LICENSE
+- github.com/charmbracelet/x/term v0.2.1 — source: github.com/charmbracelet/x/term@v0.2.1/LICENSE — included: LICENSES/third-party/github.com/charmbracelet/x/term@v0.2.1/LICENSE
+- github.com/creack/pty v1.1.24 — source: github.com/creack/pty@v1.1.24/LICENSE — included: LICENSES/third-party/github.com/creack/pty@v1.1.24/LICENSE
+- github.com/dustin/go-humanize v1.0.1 — source: github.com/dustin/go-humanize@v1.0.1/LICENSE — included: LICENSES/third-party/github.com/dustin/go-humanize@v1.0.1/LICENSE
+- github.com/google/go-cmp v0.7.0 — source: github.com/google/go-cmp@v0.7.0/LICENSE — included: LICENSES/third-party/github.com/google/go-cmp@v0.7.0/LICENSE
+- github.com/hashicorp/go-version v1.9.0 — source: github.com/hashicorp/go-version@v1.9.0/LICENSE — included: LICENSES/third-party/github.com/hashicorp/go-version@v1.9.0/LICENSE
+- github.com/hashicorp/hcl/v2 v2.25.0 — source: github.com/hashicorp/hcl/v2@v2.25.0/LICENSE — included: LICENSES/third-party/github.com/hashicorp/hcl/v2@v2.25.0/LICENSE
+- github.com/hashicorp/terraform-json v0.29.0 — source: github.com/hashicorp/terraform-json@v0.29.0/LICENSE — included: LICENSES/third-party/github.com/hashicorp/terraform-json@v0.29.0/LICENSE
+- github.com/lucasb-eyer/go-colorful v1.2.0 — source: github.com/lucasb-eyer/go-colorful@v1.2.0/LICENSE — included: LICENSES/third-party/github.com/lucasb-eyer/go-colorful@v1.2.0/LICENSE
+- github.com/Masterminds/semver/v3 v3.5.0 — source: github.com/Masterminds/semver/v3@v3.5.0/LICENSE.txt — included: LICENSES/third-party/github.com/Masterminds/semver/v3@v3.5.0/LICENSE.txt
+- github.com/mattn/go-colorable v0.1.14 — source: github.com/mattn/go-colorable@v0.1.14/LICENSE — included: LICENSES/third-party/github.com/mattn/go-colorable@v0.1.14/LICENSE
+- github.com/mattn/go-isatty v0.0.20 — source: github.com/mattn/go-isatty@v0.0.20/LICENSE — included: LICENSES/third-party/github.com/mattn/go-isatty@v0.0.20/LICENSE
+- github.com/mattn/go-runewidth v0.0.16 — source: github.com/mattn/go-runewidth@v0.0.16/LICENSE — included: LICENSES/third-party/github.com/mattn/go-runewidth@v0.0.16/LICENSE
+- github.com/mitchellh/go-wordwrap v1.0.1 — source: github.com/mitchellh/go-wordwrap@v1.0.1/LICENSE.md — included: LICENSES/third-party/github.com/mitchellh/go-wordwrap@v1.0.1/LICENSE.md
+- github.com/mitchellh/hashstructure/v2 v2.0.2 — source: github.com/mitchellh/hashstructure/v2@v2.0.2/LICENSE — included: LICENSES/third-party/github.com/mitchellh/hashstructure/v2@v2.0.2/LICENSE
+- github.com/muesli/ansi v0.0.0-20230316100256-276c6243b2f6 — source: github.com/muesli/ansi@v0.0.0-20230316100256-276c6243b2f6/LICENSE — included: LICENSES/third-party/github.com/muesli/ansi@v0.0.0-20230316100256-276c6243b2f6/LICENSE
+- github.com/muesli/cancelreader v0.2.2 — source: github.com/muesli/cancelreader@v0.2.2/LICENSE — included: LICENSES/third-party/github.com/muesli/cancelreader@v0.2.2/LICENSE
+- github.com/muesli/termenv v0.16.0 — source: github.com/muesli/termenv@v0.16.0/LICENSE — included: LICENSES/third-party/github.com/muesli/termenv@v0.16.0/LICENSE
+- github.com/pkg/errors v0.9.1 — source: github.com/pkg/errors@v0.9.1/LICENSE — included: LICENSES/third-party/github.com/pkg/errors@v0.9.1/LICENSE
+- github.com/rivo/uniseg v0.4.7 — source: github.com/rivo/uniseg@v0.4.7/LICENSE.txt — included: LICENSES/third-party/github.com/rivo/uniseg@v0.4.7/LICENSE.txt
+- github.com/rs/zerolog v1.34.0 — source: github.com/rs/zerolog@v1.34.0/LICENSE — included: LICENSES/third-party/github.com/rs/zerolog@v1.34.0/LICENSE
+- github.com/rs/zerolog v1.34.0 — source: github.com/rs/zerolog@v1.34.0/hlog/internal/mutil/LICENSE — included: LICENSES/third-party/github.com/rs/zerolog@v1.34.0/hlog/internal/mutil/LICENSE
+- github.com/spf13/cobra v1.10.2 — source: github.com/spf13/cobra@v1.10.2/LICENSE.txt — included: LICENSES/third-party/github.com/spf13/cobra@v1.10.2/LICENSE.txt
+- github.com/spf13/pflag v1.0.9 — source: github.com/spf13/pflag@v1.0.9/LICENSE — included: LICENSES/third-party/github.com/spf13/pflag@v1.0.9/LICENSE
+- github.com/xo/terminfo v0.0.0-20220910002029-abceb7e1c41e — source: github.com/xo/terminfo@v0.0.0-20220910002029-abceb7e1c41e/LICENSE — included: LICENSES/third-party/github.com/xo/terminfo@v0.0.0-20220910002029-abceb7e1c41e/LICENSE
+- github.com/zclconf/go-cty v1.19.0 — source: github.com/zclconf/go-cty@v1.19.0/LICENSE — included: LICENSES/third-party/github.com/zclconf/go-cty@v1.19.0/LICENSE
+- golang.org/x/sync v0.18.0 — source: golang.org/x/sync@v0.18.0/LICENSE — included: LICENSES/third-party/golang.org/x/sync@v0.18.0/LICENSE
+- golang.org/x/sync v0.18.0 — source: golang.org/x/sync@v0.18.0/PATENTS — included: LICENSES/third-party/golang.org/x/sync@v0.18.0/PATENTS
+- golang.org/x/sys v0.38.0 — source: golang.org/x/sys@v0.38.0/LICENSE — included: LICENSES/third-party/golang.org/x/sys@v0.38.0/LICENSE
+- golang.org/x/sys v0.38.0 — source: golang.org/x/sys@v0.38.0/PATENTS — included: LICENSES/third-party/golang.org/x/sys@v0.38.0/PATENTS
+- golang.org/x/term v0.37.0 — source: golang.org/x/term@v0.37.0/LICENSE — included: LICENSES/third-party/golang.org/x/term@v0.37.0/LICENSE
+- golang.org/x/term v0.37.0 — source: golang.org/x/term@v0.37.0/PATENTS — included: LICENSES/third-party/golang.org/x/term@v0.37.0/PATENTS
+- golang.org/x/text v0.31.0 — source: golang.org/x/text@v0.31.0/LICENSE — included: LICENSES/third-party/golang.org/x/text@v0.31.0/LICENSE
+- golang.org/x/text v0.31.0 — source: golang.org/x/text@v0.31.0/PATENTS — included: LICENSES/third-party/golang.org/x/text@v0.31.0/PATENTS
+
+Go toolchain snapshot
+---------------------
+The following notices are from the locally audited Go 1.27.3 installation, as an inventory snapshot of standard-library/runtime and vendored DNS code. This records the inspected toolchain and is not a compiler-version pin or a claim that all builds use this compiler. The Go source tree is not included.
+- Go 1.27.3 LICENSE — included: LICENSES/toolchain/go1.27.3/LICENSE
+- Go 1.27.3 PATENTS — included: LICENSES/toolchain/go1.27.3/PATENTS
+- Go 1.27.3 vendor/golang.org/x/net/LICENSE — included: LICENSES/toolchain/go1.27.3/vendor/golang.org/x/net/LICENSE
+- Go 1.27.3 vendor/golang.org/x/net/PATENTS — included: LICENSES/toolchain/go1.27.3/vendor/golang.org/x/net/PATENTS
+
+The vendored x/net/dns/dnsmessage code is part of this toolchain snapshot; its LICENSE and PATENTS are included above. The source is in Go 1.27.3 GOROOT src/vendor/golang.org/x/net/dns/dnsmessage.
+

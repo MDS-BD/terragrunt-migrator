@@ -1,0 +1,10 @@
+{
+  "format_version": "1.0",
+  "values": {
+    "root_module": {
+      "resources": [
+        { "type": "aws_ecs_task_definition", "values": {} }
+      ]
+    }
+  }
+}

@@ -1,0 +1,22 @@
+# Logs and runtime data
+logs/
+*.log
+pids/
+*.pid
+*.pid.lock
+
+# Local configuration
+.env
+.env.*.local
+.DS_Store
+
+# Terraform caches
+.terraform/
+.terragrunt-cache/
+
+# Go binaries, coverage, and release output
+/terragrunt-migrator
+/coverage.out
+/coverage/
+/dist/
+
