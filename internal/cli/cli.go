@@ -21,7 +21,7 @@ import (
 
 // NewRoot creates the terragrunt-migrator command tree.
 func NewRoot(version string) *cobra.Command {
-	var dryRun, autoApprove, autoApply bool
+	var dryRun, autoApprove, autoApply, changedOnly bool
 	root := &cobra.Command{Use: "terragrunt-migrator", Short: "Upgrade Terraform components and reapply Terragrunt deployments", Version: version, SilenceUsage: true, SilenceErrors: true}
 	root.PersistentFlags().BoolVar(&dryRun, "dry-run", false, "Show what would be done without making changes")
 	root.PersistentFlags().BoolVar(&autoApprove, "auto-approve", false, "Whether to auto-approve changes to files")
@@ -75,11 +75,12 @@ func NewRoot(version string) *cobra.Command {
 			if err != nil {
 				return err
 			}
-			return reapply(cmd.Context(), componentName, pattern, dryRun, apply)
+			return reapply(cmd.Context(), componentName, pattern, dryRun, apply, changedOnly)
 		},
 	}
 	reapply.Flags().String("component", "", "Component to reapply (eg. ecs-service)")
 	reapply.Flags().String("regex", "", "Regex to match into terragrunt.hcl files")
+	reapply.Flags().BoolVar(&changedOnly, "changed", false, "Only reapply changed terragrunt.hcl files under the current directory (requires Git)")
 	root.AddCommand(component, lambdas, reapply)
 	return root
 }
@@ -395,7 +396,7 @@ func confirmChange(ctx context.Context, cmd *cobra.Command, path string) (bool, 
 	return approved, err
 }
 
-func reapply(ctx context.Context, component, pattern string, dryRun, autoApply bool) error {
+func reapply(ctx context.Context, component, pattern string, dryRun, autoApply, changedOnly bool) error {
 	if dryRun {
 		dryRunNotice(ctx)
 	}
@@ -415,8 +416,23 @@ func reapply(ctx context.Context, component, pattern string, dryRun, autoApply b
 	if err != nil {
 		return err
 	}
+	var changedFiles map[string]struct{}
+	if changedOnly {
+		changedFiles, cwd, err = changedTerragruntFiles(ctx, cwd)
+		if err != nil {
+			return fmt.Errorf("--changed requires a Git working tree: %w", err)
+		}
+	}
 	found := false
-	err = finder.Find(ctx, cwd, finder.Options{Filename: "terragrunt.hcl", ContentRegex: contentRE, ComponentRegex: componentRE}, func(file string) error { found = true; return reapplyFile(ctx, file, dryRun, autoApply) })
+	err = finder.Find(ctx, cwd, finder.Options{Filename: "terragrunt.hcl", ContentRegex: contentRE, ComponentRegex: componentRE}, func(file string) error {
+		if changedOnly {
+			if _, ok := changedFiles[filepath.Clean(file)]; !ok {
+				return nil
+			}
+		}
+		found = true
+		return reapplyFile(ctx, file, dryRun, autoApply)
+	})
 	if err != nil {
 		if ctx.Err() != nil || errors.Is(err, context.Canceled) {
 			return err

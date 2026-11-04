@@ -34,9 +34,10 @@ terragrunt-migrator --help
 terragrunt-migrator upgrade-component --component example-service --version-range '3.*' --target-version 4.0.1 --dry-run
 terragrunt-migrator upgrade-lambdas --version-range '1.*' --target-version 2.0.0 --dry-run
 terragrunt-migrator reapply --component example-service --dry-run
+terragrunt-migrator reapply --changed --component example-service --dry-run --auto-apply=false
 ```
 
-The examples use synthetic component names and versions. `upgrade-component` finds matching `terragrunt.hcl` files beneath the current directory and updates their matching component source versions. `upgrade-lambdas` finds shared Lambda module declarations and referencing deployments beneath the repository root, updates matching module versions, and runs the selected deployments. `reapply` runs selected deployments without editing their configuration; `--component` and `--regex` filters are optional and, when both are set, both must match.
+The examples use synthetic component names and versions. `upgrade-component` finds matching `terragrunt.hcl` files beneath the current directory and updates their matching component source versions. `upgrade-lambdas` finds shared Lambda module declarations and referencing deployments beneath the repository root, updates matching module versions, and runs the selected deployments. `reapply` runs selected deployments without editing their configuration; `--component` and `--regex` filters are optional and, when both are set, both must match. Add `--changed` to `reapply` to restrict it to tracked files with staged or unstaged changes and untracked, non-ignored files under the current directory; this option requires Git and does not select deleted files. Regex patterns use Go's RE2 syntax (lookahead and backreferences are not supported).
 
 ### Changes and execution
 
@@ -46,6 +47,7 @@ The examples use synthetic component names and versions. `upgrade-component` fin
 - Supported state resolvers preserve the `APP_VERSION` for ECS components and Lambda code version, base path, and per-function package versions. Other components do not use these resolvers.
 - Each selected deployment runs `terragrunt init -upgrade` before `terragrunt apply`; an init failure skips apply for that deployment.
 - Ctrl+C interrupts the managed Terragrunt/Terraform process group. If a process must be forcibly stopped, inspect state-lock status before retrying.
+- Safe smoke input (disposable Git repository): commit `stage/example-service/terragrunt.hcl` containing `terraform { source = "git::https://github.com/example-org/modules.git//example-service-1.2.3" }`, modify the file locally, then run `terragrunt-migrator reapply --changed --component example-service --dry-run --auto-apply=false`. The example component is unsupported by state resolvers, so dry-run skips Terragrunt execution.
 
 ## Development
 
